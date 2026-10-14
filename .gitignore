@@ -15,6 +15,19 @@ a.out
 core
 core.*
 
+# ===== Visual Studio / MSBuild 产生的中间文件 =====
+*.tlog
+*.ilk
+*.pdb
+*.idb
+*.recipe
+*.lastbuildstate
+*.log
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
 # ===== 编辑器/系统产生的文件 =====
 .vscode/settings.json.bak
 *.vsix
