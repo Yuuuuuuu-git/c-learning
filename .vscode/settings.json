@@ -1,0 +1,19 @@
+{
+  // ===== 告诉 VS Code 的 C/C++ 扩展：编译器在哪 =====
+  // "compilerPath" 就是 VS Code 提示"找不到编译器"时缺的那个设置
+  "C_Cpp.default.compilerPath": "D:/C语言/Devc++/Dev-Cpp/MinGW64/bin/gcc.exe",
+  "C_Cpp.default.cStandard": "c11",
+  "C_Cpp.default.intelliSenseMode": "windows-gcc-x64",
+
+  // ===== 终端与编码 =====
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "files.encoding": "utf8",
+
+  // ===== 编辑器习惯（新手建议全开）=====
+  "editor.tabSize": 4,                    // 一个 Tab = 4 个空格（C 语言惯例）
+  "editor.insertSpaces": true,            // 按 Tab 插入空格，不用制表符
+  "editor.renderWhitespace": "boundary",  // 显示行尾空格，避免隐藏错误
+  "editor.rulers": [100],                 // 100 列处画竖线，提醒别写太长
+  "files.trimTrailingWhitespace": true,   // 保存时自动删掉行尾空格
+  "files.insertFinalNewline": true        // 保存时自动在末尾补空行
+}

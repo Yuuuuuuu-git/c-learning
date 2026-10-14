@@ -1,0 +1,32 @@
+# ===== 编译产物（不需要进仓库）=====
+*.exe
+*.o
+*.obj
+*.out
+*.a
+*.so
+*.dll
+a.out
+
+# ===== 调试与临时文件 =====
+*.dSYM/
+*.stackdump
+*.gch
+core
+core.*
+
+# ===== 编辑器/系统产生的文件 =====
+.vscode/settings.json.bak
+*.vsix
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ===== 说明 =====
+# 这个文件告诉 Git：哪些文件不要纳入版本管理。
+# 为什么要忽略 .exe？因为它是 gcc 编译出来的结果，
+# 同一份 hello.c 在任何电脑上都能重新编译出 hello.exe，
+# 把二进制文件传上 GitHub 只会让仓库变臃肿。
+#
+# .vscode/ 里的三个配置（settings/tasks/launch）是保留的，
+# 因为它们记录了"怎么编译这个项目"，对别人也有用。
