@@ -1,0 +1,57 @@
+{
+  // ===== 编译任务配置 =====
+  // 这个文件告诉 VS Code「按哪个按钮时执行什么命令来编译」。
+  // 触发方式：Ctrl+Shift+B（只编译）、或调试时 F5 自动先编译（见 launch.json 的 preLaunchTask）
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "编译当前文件（gcc）",
+      // 用编译器的完整路径，这样不依赖系统 PATH，最省事
+      "command": "D:/C语言/Devc++/Dev-Cpp/MinGW64/bin/gcc.exe",
+      "args": [
+        "-g",                     // 生成调试信息（F5 调试必需，少了他就不能打断点）
+        "-Wall",                  // 打开常见警告（新手最重要的参数：能把隐患提前告诉你）
+        "-Wextra",                // 更多警告
+        "-std=c11",               // 使用 C11 标准
+        "-finput-charset=UTF-8",  // 源文件按 UTF-8 读（否则从 Dev-C++ 拿来的 GBK 文件中文会乱码）
+        "-fexec-charset=UTF-8",   // 程序运行时输出的字符串也用 UTF-8
+        "${file}",                // 当前打开的文件
+        "-o",                     // 输出到……
+        "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"   // 在源文件所在目录执行
+      },
+      "problemMatcher": [
+        "$gcc"                    // 把编译错误解析到「问题」面板，可以点击跳转到出错行
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true         // 标记为默认构建任务 → Ctrl+Shift+B 直接触发它
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "detail": "用 Dev-C++ 自带的 gcc 编译当前 .c 文件"
+    },
+    {
+      "type": "shell",
+      "label": "编译并运行（gcc）",
+      "command": "D:/C语言/Devc++/Dev-Cpp/MinGW64/bin/gcc.exe",
+      "args": [
+        "-g", "-Wall", "-Wextra", "-std=c11",
+        "-finput-charset=UTF-8", "-fexec-charset=UTF-8",
+        "${file}",
+        "-o", "${fileDirname}/${fileBasenameNoExtension}.exe",
+        "&&", "${fileDirname}/${fileBasenameNoExtension}.exe"
+      ],
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": ["$gcc"],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "detail": "编译后立即运行（写练习时快速看结果用）"
+    }
+  ]
+}
